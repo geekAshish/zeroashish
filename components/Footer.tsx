@@ -1,0 +1,8 @@
+export default function Footer() {
+return (
+<footer className="mx-auto max-w-5xl border-t border-neutral-200/70 py-10 text-sm text-neutral-600 dark:border-neutral-800/60 dark:text-neutral-500">
+Built with <span className="text-red-500">❤</span> by Ashish Kushwaha
+</footer>
+)
+}
+
