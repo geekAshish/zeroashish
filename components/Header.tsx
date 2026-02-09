@@ -4,6 +4,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
+import CommandPalette from '@/components/CommandPalette'
+import { SearchIcon } from '@/components/icons'
 
 const navItems = [
 { label: 'About', href: '/about' },
@@ -16,6 +18,7 @@ const pathname = usePathname()
 const activePath = useMemo(() => pathname ?? '/', [pathname])
 
 return (
+<>
 <header className="sticky top-0 z-50 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-4 border-b border-neutral-200/70 bg-white/90 transition-colors duration-300 dark:bg-transparent dark:backdrop-blur dark:supports-[backdrop-filter]:bg-neutral-950/25 dark:border-neutral-800/60">
 <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
 <Link href="/" className="group flex items-center gap-3">
@@ -58,8 +61,22 @@ pathname?.startsWith('/blog')
 Blog
 </Link>
 </nav>
-<div className="h-10 w-10" aria-hidden="true" />
+
+<button
+type="button"
+onClick={() => window.dispatchEvent(new Event('commandpalette:open'))}
+className="inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white px-3 py-2 text-sm text-neutral-700 shadow-sm transition hover:bg-neutral-50 hover:text-neutral-950 dark:border-neutral-800/70 dark:bg-neutral-950/40 dark:text-neutral-200 dark:hover:bg-neutral-950/60"
+>
+<SearchIcon className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
+<span className="hidden sm:inline">Search</span>
+<span className="ml-1 hidden items-center gap-1 rounded-full bg-neutral-950/5 px-2 py-1 text-[11px] text-neutral-600 ring-1 ring-neutral-200/70 sm:flex dark:bg-black/30 dark:text-white/60 dark:ring-white/10">
+<span>Ctrl</span>
+<span>K</span>
+</span>
+</button>
 </div>
 </header>
+  <CommandPalette />
+</>
 )
 }

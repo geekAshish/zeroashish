@@ -12,7 +12,7 @@ return (
 Blog
 </h1>
 <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-lg">
-Coming soon. I'm preparing posts about UI craft, performance, and building with Next.js.
+Coming soon. I&apos;m preparing posts about UI craft, performance, and building with Next.js.
 </p>
 </section>
 <Footer />

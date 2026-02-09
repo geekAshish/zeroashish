@@ -76,9 +76,9 @@ transition={{ duration: 0.45, delay: idx * 0.06 }}
 whileHover={{ rotate: p.rotate - 1, scale: 1.02 }}
 whileTap={{ scale: 1.01 }}
 style={{ x: p.x, y: p.y, zIndex: topCard === p.label ? 20 : idx + 1 }}
-className="absolute left-0 top-0 w-[240px] touch-none cursor-grab rounded-2xl border border-neutral-200/80 bg-white p-3 shadow-sm active:cursor-grabbing dark:border-neutral-800/70 dark:bg-neutral-950/40"
+className="absolute left-0 top-0 w-[240px] touch-none cursor-grab rounded-2xl border border-neutral-200/80 bg-white p-3 shadow-sm active:cursor-grabbing dark:border-white/10 dark:bg-white/5 dark:backdrop-blur"
 >
-<div className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-gradient-to-br from-neutral-100 via-white to-neutral-100 dark:border-neutral-800/60 dark:from-neutral-900 dark:via-neutral-950 dark:to-neutral-900">
+<div className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-gradient-to-br from-neutral-100 via-white to-neutral-100 dark:border-white/10 dark:from-neutral-900 dark:via-neutral-950 dark:to-neutral-900">
 <div className="h-full w-full bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.08)_1px,transparent_0)] bg-[size:16px_16px] opacity-25 dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] dark:opacity-40" />
 </div>
 <div className="mt-2 text-center text-xs font-semibold text-neutral-700 dark:text-neutral-300">
@@ -101,10 +101,10 @@ initial={{ opacity: 0, y: 14 }}
 whileInView={{ opacity: 1, y: 0 }}
 viewport={{ once: true, margin: '-80px' }}
 transition={{ duration: 0.35 }}
-className="flex gap-4 rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-sm dark:border-neutral-800/70 dark:bg-neutral-950/25"
+className="flex gap-4 rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-white/5 dark:backdrop-blur"
 >
 <div className="shrink-0">
-<div className="inline-flex items-center rounded-xl border border-neutral-200/80 bg-white px-3 py-1.5 text-sm font-semibold text-neutral-800 shadow-sm dark:border-neutral-800/70 dark:bg-neutral-950/40 dark:text-neutral-200">
+<div className="inline-flex items-center rounded-xl border border-neutral-200/80 bg-white px-3 py-1.5 text-sm font-semibold text-neutral-800 shadow-sm dark:border-white/10 dark:bg-black/20 dark:text-neutral-100">
 {item.year}
 </div>
 </div>
@@ -126,4 +126,3 @@ className="flex gap-4 rounded-2xl border border-neutral-200/80 bg-white p-4 shad
 </section>
 )
 }
-
