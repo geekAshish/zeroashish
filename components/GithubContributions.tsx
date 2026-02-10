@@ -32,6 +32,8 @@ const LEVEL_COLORS: Record<ContributionDay['level'], string> = {
   4: '#39d353',
 }
 
+const LEVELS: ContributionDay['level'][] = [0, 1, 2, 3, 4]
+
 function formatDate(date: string) {
   const parsed = new Date(`${date}T00:00:00Z`)
   if (Number.isNaN(parsed.getTime())) return date
@@ -157,7 +159,7 @@ export default function GithubContributions({ username = "geekAshish" }: { usern
             <div className="flex items-center gap-2 text-xs text-white/60">
               <span>Less</span>
               <span className="flex items-center gap-1">
-                {(Object.keys(LEVEL_COLORS) as Array<keyof typeof LEVEL_COLORS>).map((k) => (
+                {LEVELS.map((k) => (
                   <span
                     key={k}
                     className="h-2.5 w-2.5 rounded-[2px] ring-1 ring-white/5"
