@@ -115,3 +115,67 @@ export function GlobeIcon(props: IconProps) {
     </IconBase>
   )
 }
+
+export function BriefcaseIcon(props: IconProps) {
+  return (
+    <IconBase title="Role" {...props}>
+      <path d="M9 6.5V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5" />
+      <path d="M5.5 7.5h13A2.5 2.5 0 0 1 21 10v8.5A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5V10a2.5 2.5 0 0 1 2.5-2.5Z" />
+      <path d="M3 13.5c2.5 1.6 5.7 2.5 9 2.5s6.5-.9 9-2.5" />
+    </IconBase>
+  )
+}
+
+export function CodeIcon(props: IconProps) {
+  return (
+    <IconBase title="Code" {...props}>
+      <path d="m9 18-6-6 6-6" />
+      <path d="m15 6 6 6-6 6" />
+    </IconBase>
+  )
+}
+
+export function MapPinIcon(props: IconProps) {
+  return (
+    <IconBase title="Location" {...props}>
+      <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" />
+      <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+    </IconBase>
+  )
+}
+
+export function PhoneIcon(props: IconProps) {
+  return (
+    <IconBase title="Phone" {...props}>
+      <path d="M7.5 4.5h-1A2.5 2.5 0 0 0 4 7c0 7.7 6.3 14 14 14a2.5 2.5 0 0 0 2.5-2.5v-1" />
+      <path d="M7.3 4.8 10 7.5c.6.6.6 1.5 0 2.1l-1.3 1.3c1.2 2.2 2.9 4 5.1 5.1l1.3-1.3c.6-.6 1.5-.6 2.1 0l2.7 2.7" />
+    </IconBase>
+  )
+}
+
+export function ClockIcon(props: IconProps) {
+  return (
+    <IconBase title="Time" {...props}>
+      <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+      <path d="M12 6v6l4 2" />
+    </IconBase>
+  )
+}
+
+export function ArrowUpRightIcon(props: IconProps) {
+  return (
+    <IconBase title="Open" {...props}>
+      <path d="M7 17 17 7" />
+      <path d="M10 7h7v7" />
+    </IconBase>
+  )
+}
+
+export function VerifiedIcon(props: IconProps) {
+  return (
+    <IconBase title="Verified" {...props}>
+      <path d="M12 2 14.4 4.3 17.7 4.4 18.1 7.7 20.4 10.1 18.1 12.5 17.7 15.8 14.4 15.9 12 18.2 9.6 15.9 6.3 15.8 5.9 12.5 3.6 10.1 5.9 7.7 6.3 4.4 9.6 4.3 12 2Z" />
+      <path d="m9.5 10.5 1.8 1.8L14.8 8.8" />
+    </IconBase>
+  )
+}

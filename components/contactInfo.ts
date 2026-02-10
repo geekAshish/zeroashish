@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'youremail@example.com'
+export const CONTACT_EMAIL = 'ashishkushwaha472004@gmail.com'
 
 export const SOCIALS = [
 { label: 'GitHub', href: '#' },
