@@ -1,16 +1,22 @@
 'use client'
 
+import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { CONTACT_EMAIL, SOCIALS } from '@/components/contactInfo'
 import { motion } from 'motion/react'
-import { GithubIcon, LinkedInIcon, XIcon } from '@/components/icons'
+import {
+  github as githubLogo,
+  leetcode as leetcodeLogo,
+  linkedin as linkedinLogo,
+  twitter as twitterLogo,
+} from '@/constant/constant'
 
 function SocialIcon({ label }: { label: string }) {
   const key = label.toLowerCase()
-  if (key === 'github') return <GithubIcon className="h-4 w-4" />
-  if (key === 'linkedin') return <LinkedInIcon className="h-4 w-4" />
-  if (key === 'x' || key === 'twitter') return <XIcon className="h-4 w-4" />
-  if (key === 'leetcode') return <span className="text-[10px] font-semibold">LC</span>
+  if (key === 'github') return <Image src={githubLogo} alt="GitHub" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+  if (key === 'linkedin') return <Image src={linkedinLogo} alt="LinkedIn" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+  if (key === 'x' || key === 'twitter') return <Image src={twitterLogo} alt="X" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+  if (key === 'leetcode') return <Image src={leetcodeLogo} alt="LeetCode" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
   return <span className="text-[10px] font-semibold">{label.slice(0, 1).toUpperCase()}</span>
 }
 
@@ -92,7 +98,7 @@ target={s.href === '#' ? undefined : '_blank'}
 rel={s.href === '#' ? undefined : 'noreferrer noopener'}
 className="inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white px-3 py-1.5 text-neutral-700 shadow-sm transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white/5 dark:text-white/75 dark:hover:bg-white/8 dark:hover:text-white"
 >
-<span className="grid h-7 w-7 place-items-center rounded-full bg-neutral-950/5 ring-1 ring-neutral-200/80 dark:bg-black/25 dark:ring-white/10">
+<span className="grid h-7 w-7 place-items-center rounded-full bg-white ring-1 ring-black/10 dark:bg-white/90 dark:ring-white/10">
   <SocialIcon label={s.label} />
 </span>
 {s.label}

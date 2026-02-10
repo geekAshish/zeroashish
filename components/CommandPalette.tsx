@@ -1,20 +1,24 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  GithubIcon,
   LaptopIcon,
-  LinkedInIcon,
   MailIcon,
   MoonIcon,
   SearchIcon,
   SunIcon,
-  XIcon,
 } from '@/components/icons'
 import { CONTACT_EMAIL, SOCIALS } from '@/components/contactInfo'
 import { useTheme, type Theme } from '@/components/ThemeProvider'
+import {
+  github as githubLogo,
+  leetcode as leetcodeLogo,
+  linkedin as linkedinLogo,
+  twitter as twitterLogo,
+} from '@/constant/constant'
 
 type PaletteItem =
   | {
@@ -67,6 +71,14 @@ function MenuIcon({ children }: { children: React.ReactNode }) {
   )
 }
 
+function SocialLogoIcon({ src, alt }: { src: string; alt: string }) {
+  return (
+    <span className="grid h-8 w-8 place-items-center rounded-xl bg-white ring-1 ring-black/10">
+      <Image src={src} alt={alt} width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+    </span>
+  )
+}
+
 export default function CommandPalette() {
   const router = useRouter()
   const pathname = usePathname()
@@ -92,9 +104,9 @@ export default function CommandPalette() {
     return [
       { id: 'portfolio', group: 'Menu', label: 'Portfolio', href: '/', icon: <MenuIcon>P</MenuIcon> },
       { id: 'blog', group: 'Menu', label: 'Blog', href: '/blog', icon: <MenuIcon>B</MenuIcon> },
-      { id: 'about', group: 'Portfolio', label: 'About', href: '/about', icon: <MenuIcon>A</MenuIcon> },
-      { id: 'projects', group: 'Portfolio', label: 'Projects', href: '/projects', icon: <MenuIcon>#</MenuIcon> },
-      { id: 'contact', group: 'Portfolio', label: 'Contact', href: '/contact', icon: <MenuIcon>@</MenuIcon> },
+      { id: 'about', group: 'Menu', label: 'About', href: '/about', icon: <MenuIcon>A</MenuIcon> },
+      { id: 'projects', group: 'Menu', label: 'Projects', href: '/projects', icon: <MenuIcon>#</MenuIcon> },
+      { id: 'contact', group: 'Menu', label: 'Contact', href: '/contact', icon: <MenuIcon>@</MenuIcon> },
       {
         id: 'email',
         group: 'Social Links',
@@ -104,9 +116,30 @@ export default function CommandPalette() {
         keywords: 'mail',
         icon: <MailIcon className="h-4 w-4" />,
       },
-      { id: 'x', group: 'Social Links', label: 'X (formerly Twitter)', href: socials.x, external: true, icon: <XIcon className="h-4 w-4" /> },
-      { id: 'github', group: 'Social Links', label: 'GitHub', href: socials.github, external: true, icon: <GithubIcon className="h-4 w-4" /> },
-      { id: 'linkedin', group: 'Social Links', label: 'LinkedIn', href: socials.linkedin, external: true, icon: <LinkedInIcon className="h-4 w-4" /> },
+      {
+        id: 'x',
+        group: 'Social Links',
+        label: 'X (formerly Twitter)',
+        href: socials.x,
+        external: true,
+        icon: <SocialLogoIcon src={twitterLogo} alt="X" />,
+      },
+      {
+        id: 'github',
+        group: 'Social Links',
+        label: 'GitHub',
+        href: socials.github,
+        external: true,
+        icon: <SocialLogoIcon src={githubLogo} alt="GitHub" />,
+      },
+      {
+        id: 'linkedin',
+        group: 'Social Links',
+        label: 'LinkedIn',
+        href: socials.linkedin,
+        external: true,
+        icon: <SocialLogoIcon src={linkedinLogo} alt="LinkedIn" />,
+      },
       ...(socials.leetcode !== '#'
         ? [
             {
@@ -115,13 +148,13 @@ export default function CommandPalette() {
               label: 'LeetCode',
               href: socials.leetcode,
               external: true,
-              icon: <MenuIcon>LC</MenuIcon>,
+              icon: <SocialLogoIcon src={leetcodeLogo} alt="LeetCode" />,
             },
           ]
         : []),
-      { id: 'theme-light', group: 'Theme', label: 'Light', action: () => setTheme('light'), icon: ThemeRowIcon('light'), keywords: 'day' },
-      { id: 'theme-dark', group: 'Theme', label: 'Dark', action: () => setTheme('dark'), icon: ThemeRowIcon('dark'), keywords: 'night' },
-      { id: 'theme-system', group: 'Theme', label: 'Auto', action: () => setTheme('system'), icon: ThemeRowIcon('system'), keywords: 'system os' },
+      // { id: 'theme-light', group: 'Theme', label: 'Light', action: () => setTheme('light'), icon: ThemeRowIcon('light'), keywords: 'day' },
+      // { id: 'theme-dark', group: 'Theme', label: 'Dark', action: () => setTheme('dark'), icon: ThemeRowIcon('dark'), keywords: 'night' },
+      // { id: 'theme-system', group: 'Theme', label: 'Auto', action: () => setTheme('system'), icon: ThemeRowIcon('system'), keywords: 'system os' },
     ]
   }, [setTheme, socials])
 
@@ -318,4 +351,3 @@ export default function CommandPalette() {
     </div>
   )
 }
-

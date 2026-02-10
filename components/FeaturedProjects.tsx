@@ -1,8 +1,24 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { projects } from '@/components/projectsData'
+import { nextjs, nodejs, postgresql, react, rust, socketio, solana, tailwindcss, typescript } from '@/constant/constant'
+
+function techIconSrc(label: string) {
+  const key = label.trim().toLowerCase()
+  if (key === 'react') return react
+  if (key === 'next.js' || key === 'nextjs') return nextjs
+  if (key === 'tailwind css' || key === 'tailwindcss') return tailwindcss
+  if (key === 'typescript') return typescript
+  if (key === 'node.js' || key === 'nodejs') return nodejs
+  if (key === 'postgresql' || key === 'postgres') return postgresql
+  if (key === 'websockets' || key === 'socket.io' || key === 'socketio') return socketio
+  if (key === 'solana') return solana
+  if (key === 'rust') return rust
+  return null
+}
 
 export default function FeaturedProjects() {
 const featured = projects.slice(0, 3)
@@ -52,9 +68,18 @@ className="group rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-sm
 {p.stack.slice(0, 3).map((t) => (
 <span
 key={t}
-className="inline-flex items-center rounded-full border border-neutral-200/80 bg-white px-2.5 py-1 text-[11px] font-medium text-neutral-700 shadow-sm dark:border-white/10 dark:bg-black/20 dark:text-white/70"
+title={t}
+aria-label={t}
+className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/80 bg-white shadow-sm dark:border-white/10 dark:bg-black/20"
 >
-{t}
+{(() => {
+  const src = techIconSrc(t)
+  if (!src) {
+    return <span className="text-[11px] font-semibold text-neutral-700 dark:text-white/70">{t.slice(0, 1).toUpperCase()}</span>
+  }
+
+  return <Image src={src} alt={t} width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+})()}
 </span>
 ))}
 </div>

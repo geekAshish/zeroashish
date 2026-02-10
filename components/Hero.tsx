@@ -1,6 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
+import Image from 'next/image'
 import { useMemo } from 'react'
 import { motion } from 'motion/react'
 import { CONTACT_EMAIL, SOCIALS } from '@/components/contactInfo'
@@ -8,26 +9,16 @@ import {
   ArrowUpRightIcon,
   BriefcaseIcon,
   CodeIcon,
-  GithubIcon,
   GlobeIcon,
-  LinkedInIcon,
   MailIcon,
   MapPinIcon,
   PhoneIcon,
-  XIcon,
 } from '@/components/icons'
 import GithubContributions from '@/components/GithubContributions'
 import {
-  DockerIcon,
-  KubernetesIcon,
-  NextIcon,
-  NodeIcon,
-  PostgresIcon,
-  ReactIcon,
-  SolanaIcon,
-  TailwindIcon,
-  TypeScriptIcon,
-} from '@/components/techIcons'
+  SOCIAL_ICONS,
+  STACK_ICONS,
+} from '@/constant/constant'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -46,18 +37,6 @@ const PROFILE = {
   website: 'zeroashish.vercel.app',
   githubUsername: 'geekAshish',
 } as const
-
-const skills = [
-  { label: 'React', Icon: ReactIcon, color: 'text-sky-500 dark:text-sky-400' },
-  { label: 'Next.js', Icon: NextIcon, color: 'text-neutral-900 dark:text-neutral-100' },
-  { label: 'Tailwind CSS', Icon: TailwindIcon, color: 'text-cyan-500 dark:text-cyan-400' },
-  { label: 'TypeScript', Icon: TypeScriptIcon, color: 'text-blue-600 dark:text-blue-400' },
-  { label: 'Node.js', Icon: NodeIcon, color: 'text-emerald-600 dark:text-emerald-400' },
-  { label: 'PostgreSQL', Icon: PostgresIcon, color: 'text-indigo-600 dark:text-indigo-400' },
-  { label: 'Docker', Icon: DockerIcon, color: 'text-sky-600 dark:text-sky-400' },
-  { label: 'Kubernetes', Icon: KubernetesIcon, color: 'text-violet-600 dark:text-violet-400' },
-  { label: 'Solana', Icon: SolanaIcon, color: 'text-fuchsia-600 dark:text-fuchsia-400' },
-] as const
 
 function safeUrl(href: string) {
   if (!href || href === '#') return null
@@ -147,10 +126,55 @@ export default function Hero() {
 
   const socialCards = useMemo(
     () => [
-      { label: 'X (formerly Twitter)', href: socials.x, icon: <XIcon className="h-6 w-6" /> },
-      { label: 'GitHub', href: socials.github, icon: <GithubIcon className="h-6 w-6" /> },
-      { label: 'LinkedIn', href: socials.linkedin, icon: <LinkedInIcon className="h-6 w-6" /> },
-      { label: 'LeetCode', href: socials.leetcode, icon: <span className="text-sm font-semibold">LC</span> },
+      {
+        label: 'X (formerly Twitter)',
+        href: socials.x,
+        icon: (
+          <Image src={SOCIAL_ICONS.twitter} alt="X" width={24} height={24} sizes="24px" className="h-6 w-6 object-contain" />
+        ),
+      },
+      {
+        label: 'GitHub',
+        href: socials.github,
+        icon: (
+          <Image
+            src={SOCIAL_ICONS.github}
+            alt="GitHub"
+            width={24}
+            height={24}
+            sizes="24px"
+            className="h-6 w-6 object-contain"
+          />
+        ),
+      },
+      {
+        label: 'LinkedIn',
+        href: socials.linkedin,
+        icon: (
+          <Image
+            src={SOCIAL_ICONS.linkedin}
+            alt="LinkedIn"
+            width={24}
+            height={24}
+            sizes="24px"
+            className="h-6 w-6 object-contain"
+          />
+        ),
+      },
+      {
+        label: 'LeetCode',
+        href: socials.leetcode,
+        icon: (
+          <Image
+            src={SOCIAL_ICONS.leetcode}
+            alt="LeetCode"
+            width={24}
+            height={24}
+            sizes="24px"
+            className="h-6 w-6 object-contain"
+          />
+        ),
+      },
     ],
     [socials.github, socials.leetcode, socials.linkedin, socials.x]
   )
@@ -217,7 +241,7 @@ export default function Hero() {
               className="group flex items-center justify-between gap-4 rounded-3xl border border-neutral-200/80 bg-white px-5 py-4 text-neutral-900 shadow-sm backdrop-blur transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/7"
             >
               <span className="flex items-center gap-3">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-neutral-950/5 ring-1 ring-neutral-200/80 dark:bg-black/25 dark:ring-white/10">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white ring-1 ring-black/10 dark:bg-white/90 dark:ring-white/10">
                   {s.icon}
                 </span>
                 <span className="min-w-0">
@@ -240,15 +264,20 @@ export default function Hero() {
           <div className="h-px flex-1 bg-neutral-200/80 dark:bg-white/10" />
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
-          {skills.map(({ label, Icon, color }) => (
+          {STACK_ICONS.map(({ label, src }) => (
             <span
               key={label}
               className="group inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white px-3 py-1.5 text-xs text-neutral-700 shadow-sm backdrop-blur transition hover:bg-neutral-50 hover:text-neutral-950 dark:border-white/10 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/7 dark:hover:text-white md:text-sm"
             >
-              <span
-                className={`grid h-5 w-5 place-items-center rounded-full bg-neutral-950/5 ${color} ring-1 ring-neutral-200/80 dark:bg-black/20 dark:ring-white/10`}
-              >
-                <Icon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:scale-110" />
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-white ring-1 ring-black/10 dark:bg-white/90 dark:ring-white/10">
+                <Image
+                  src={src}
+                  alt={label}
+                  width={14}
+                  height={14}
+                  sizes="14px"
+                  className="h-3.5 w-3.5 object-contain transition-transform duration-200 group-hover:scale-110"
+                />
               </span>
               {label}
             </span>
