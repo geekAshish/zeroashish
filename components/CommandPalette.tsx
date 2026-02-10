@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   LaptopIcon,
   MailIcon,
@@ -89,6 +89,12 @@ export default function CommandPalette() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const inputRef = useRef<HTMLInputElement | null>(null)
+
+  const openPalette = useCallback(() => {
+    setQuery('')
+    setActiveIndex(0)
+    setOpen(true)
+  }, [])
 
   const socials = useMemo(() => {
     const byLabel = new Map(SOCIALS.map((s) => [s.label.toLowerCase(), s.href] as const))
@@ -187,24 +193,22 @@ export default function CommandPalette() {
       const isK = e.key.toLowerCase() === 'k'
       if ((e.ctrlKey || e.metaKey) && isK) {
         e.preventDefault()
-        setOpen(true)
+        openPalette()
       }
       if (e.key === 'Escape') setOpen(false)
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  }, [openPalette])
 
   useEffect(() => {
-    const onOpen = () => setOpen(true)
+    const onOpen = () => openPalette()
     window.addEventListener('commandpalette:open', onOpen as EventListener)
     return () => window.removeEventListener('commandpalette:open', onOpen as EventListener)
-  }, [])
+  }, [openPalette])
 
   useEffect(() => {
     if (!open) return
-    setQuery('')
-    setActiveIndex(0)
     const t = window.setTimeout(() => inputRef.current?.focus(), 0)
     document.body.style.overflow = 'hidden'
     return () => {

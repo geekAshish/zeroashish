@@ -4,7 +4,8 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { projects } from '@/components/projectsData'
-import { nextjs, nodejs, postgresql, react, rust, socketio, solana, tailwindcss, typescript } from '@/constant/constant'
+import { ArrowUpRightIcon } from '@/components/icons'
+import { nextjs, nodejs, postgresql, react, rust, socketio, solana, tailwindcss, typescript, SOCIAL_ICONS } from '@/constant/constant'
 
 function techIconSrc(label: string) {
   const key = label.trim().toLowerCase()
@@ -54,12 +55,36 @@ className="group rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-sm
 </div>
 
 <div className="mt-4">
-<h3 className="text-base font-semibold tracking-tight text-neutral-950 dark:text-white">
+<div className="flex items-start justify-between gap-3">
+<h3 className="min-w-0 text-base font-semibold tracking-tight text-neutral-950 dark:text-white">
 {p.title}
 </h3>
-<p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-{p.desc}
-</p>
+<div className="flex shrink-0 items-center gap-2 pt-0.5">
+<a
+href={p.repo}
+target="_blank"
+rel="noreferrer noopener"
+aria-label="GitHub repository"
+title="GitHub"
+className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/80 bg-white shadow-sm transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white dark:hover:bg-white/8"
+>
+  <Image src={SOCIAL_ICONS.github} alt="GitHub" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
+</a>
+{p.live ? (
+<a
+href={p.live}
+target="_blank"
+rel="noreferrer noopener"
+aria-label="Live site"
+title="Live"
+className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/80 bg-white shadow-sm transition hover:bg-neutral-50 dark:border-white/10 dark:bg-black/20 dark:hover:bg-white/8"
+>
+  <ArrowUpRightIcon className="h-4 w-4 text-neutral-700 dark:text-white/75" />
+</a>
+) : null}
+</div>
+</div>
+<p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">{p.desc}</p>
 </div>
 
 <div className="mt-4 flex flex-wrap gap-2">
