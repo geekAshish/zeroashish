@@ -94,8 +94,8 @@ Send Enquiry
 <a
 key={s.label}
 href={s.href}
-target={s.href === '#' ? undefined : '_blank'}
-rel={s.href === '#' ? undefined : 'noreferrer noopener'}
+target="_blank"
+rel="noreferrer noopener"
 className="inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white px-3 py-1.5 text-neutral-700 shadow-sm transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white/5 dark:text-white/75 dark:hover:bg-white/8 dark:hover:text-white"
 >
 <span className="grid h-7 w-7 place-items-center rounded-full bg-white ring-1 ring-black/10 dark:bg-white/90 dark:ring-white/10">
