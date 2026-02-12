@@ -1,12 +1,23 @@
+import type { StaticImageData } from 'next/image'
+import iotEProject from '@/assets/iot-e-project.png'
+
 export type Project = {
 title: string
 desc: string
 stack: readonly string[]
 repo: string
 live?: string
+image?: StaticImageData | string
 }
 
 export const projects: readonly Project[] = [
+{
+title: 'IOT-E',
+desc: 'An modern landing page for the video editing agency',
+stack: ['Next.js', 'TypeScript'],
+repo: 'https://github.com/geekAshish/iotentertainmentwebsite',
+image: iotEProject,
+},
 {
 title: 'n7n',
 desc: 'An AI-powered workflow automation platform built with Next.js.',

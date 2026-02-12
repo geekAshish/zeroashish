@@ -22,6 +22,11 @@ desc: 'Built Solana prototypes and learned on-chain patterns and security basics
 },
 {
 year: '2024',
+title: 'Deepdive in backend with nodejs and golang',
+desc: 'Developed RESTful APIs and microservices with Node.js and Golang, implementing authentication, database integration, and caching strategies.',
+},
+{
+year: '2023',
 title: 'Started building with Next.js',
 desc: 'Leaned into TypeScript, Tailwind, and modern frontend architecture.',
 },
@@ -53,7 +58,7 @@ I enjoy working with React, TypeScript, and modern tooling — and I&apos;m alwa
 ship better products.
 </p>
 <p className="mt-6 text-sm text-neutral-700 dark:text-neutral-300">
-Outside of code, I love travel, photography, and exploring new places.
+Outside of code, I love cooking, video games, and exploring new places(outside earth).
 </p>
 </div>
 

@@ -29,7 +29,7 @@ return (
 Projects
 </h2>
 <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-lg">
-A small selection of work that highlights my taste for clean UI, careful motion, and delightful details.
+Projects that reflect my full-stack mindset — elegant UI, structured backend systems, and automated deployment pipelines built for scale.
 </p>
 
 <div className="mt-10">
@@ -50,8 +50,23 @@ whileHover={{ y: -6 }}
 className="group rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:backdrop-blur"
 >
 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-neutral-200/70 bg-gradient-to-br from-neutral-100 to-white dark:border-white/10 dark:from-neutral-900 dark:to-neutral-950">
+{p.image ? (
+<>
+<Image
+src={p.image}
+alt={`${p.title} project preview`}
+fill
+sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+className="object-cover transition duration-300 group-hover:scale-[1.02]"
+/>
+<div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+</>
+) : (
+<>
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.08)_1px,transparent_0)] bg-[size:14px_14px] opacity-40 dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.06)_1px,transparent_0)] dark:opacity-60" />
 <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(250,204,21,0.15),transparent)] opacity-0 transition group-hover:opacity-100" />
+</>
+)}
 </div>
 
 <div className="mt-4">

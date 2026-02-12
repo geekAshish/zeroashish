@@ -41,7 +41,7 @@ className="min-w-[280px] flex-1 rounded-2xl border border-neutral-200/80 bg-whit
 “{t.quote}”
 </blockquote>
 <figcaption className="mt-5 flex items-center gap-3">
-<div className="h-9 w-9 rounded-full bg-gradient-to-br from-neutral-200 to-white ring-1 ring-black/5 dark:from-neutral-800 dark:to-neutral-950 dark:ring-white/10" />
+{/* <div className="h-9 w-9 rounded-full bg-gradient-to-br from-neutral-200 to-white ring-1 ring-black/5 dark:from-neutral-800 dark:to-neutral-950 dark:ring-white/10" /> */}
 <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{t.name}</div>
 </figcaption>
 </motion.figure>
