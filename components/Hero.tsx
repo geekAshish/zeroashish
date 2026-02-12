@@ -79,6 +79,8 @@ function InfoRow({
   href?: string
   mono?: boolean
 }) {
+  const shouldOpenNewTab = Boolean(href && /^https?:\/\//i.test(href))
+
   const content = (
     <span
       className={[
@@ -100,8 +102,8 @@ function InfoRow({
       {href ? (
         <a
           href={href}
-          target={href === '#' ? undefined : '_blank'}
-          rel={href === '#' ? undefined : 'noreferrer noopener'}
+          target={shouldOpenNewTab ? '_blank' : undefined}
+          rel={shouldOpenNewTab ? 'noreferrer noopener' : undefined}
           className="min-w-0 flex-1 truncate underline decoration-white/15 underline-offset-4 hover:decoration-white/30"
         >
           {content}
@@ -208,7 +210,13 @@ export default function Hero() {
           </div>
 
           <div className="grid gap-1">
-            <InfoRow icon={<PhoneIcon className="h-4 w-4" />} label="Phone" value={PROFILE.phone} mono />
+            <InfoRow
+              icon={<PhoneIcon className="h-4 w-4" />}
+              label="Phone"
+              value={PROFILE.phone}
+              href={`tel:${PROFILE.phone.replace(/\s+/g, '')}`}
+              mono
+            />
             <InfoRow
               icon={<MailIcon className="h-4 w-4" />}
               label="Email"
