@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react'
 import Image from 'next/image'
-import { useMemo } from 'react'
-import { motion } from 'motion/react'
+import { useEffect, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { CONTACT_EMAIL, SOCIALS } from '@/components/contactInfo'
 import {
   ArrowUpRightIcon,
@@ -25,10 +25,17 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 }
 
+const ROTATING_BADGES = [
+  'Web3 Enthusiast',
+  'Blockchain developer',
+  'Fullstack developer',
+] as const
+
+const BADGE_ROTATE_INTERVAL_MS = 2200
+
 const PROFILE = {
   name: 'Ashish Kushwaha',
   title: 'Full-Stack Engineer',
-  badge: 'Web3 Enthusiast',
   summary: `I'm your go-to Full Stack Developer, ready to bring your dream product to life in the virtual world.`,
   roleLine: 'Software Developer',
   programLine: 'Cohort 3 - @100xDevs',
@@ -116,6 +123,18 @@ function InfoRow({
 }
 
 export default function Hero() {
+  const [badgeIndex, setBadgeIndex] = useState(0)
+
+  useEffect(() => {
+    const timerId = window.setInterval(() => {
+      setBadgeIndex((prev) => (prev + 1) % ROTATING_BADGES.length)
+    }, BADGE_ROTATE_INTERVAL_MS)
+
+    return () => window.clearInterval(timerId)
+  }, [])
+
+  const activeBadge = ROTATING_BADGES[badgeIndex]
+
   const socials = useMemo(() => {
     const byLabel = new Map(SOCIALS.map((s) => [s.label.toLowerCase(), s.href] as const))
     return {
@@ -195,7 +214,18 @@ export default function Hero() {
         </h1>
         <div className="mt-3">
           <span className="inline-flex items-center rounded-full border border-neutral-200/80 bg-white/80 px-3 py-1 text-sm text-neutral-700 shadow-sm backdrop-blur dark:border-white/15 dark:bg-white/5 dark:text-white/70">
-            {PROFILE.badge}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={activeBadge}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="inline-block"
+              >
+                {activeBadge}
+              </motion.span>
+            </AnimatePresence>
           </span>
         </div>
         <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-600 dark:text-white/45">{PROFILE.summary}</p>
