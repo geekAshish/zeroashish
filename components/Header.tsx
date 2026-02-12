@@ -2,10 +2,12 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 import CommandPalette from '@/components/CommandPalette'
 import { SearchIcon } from '@/components/icons'
+import logo from '@/assets/ben_10.jpg'
 
 const navItems = [
 { label: 'About', href: '/about' },
@@ -19,11 +21,11 @@ const activePath = useMemo(() => pathname ?? '/', [pathname])
 
 return (
 <>
-<header className="sticky top-0 z-50 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-4 border-b border-neutral-200/70 bg-white/90 transition-colors duration-300 dark:bg-transparent dark:backdrop-blur dark:supports-[backdrop-filter]:bg-neutral-950/25 dark:border-neutral-800/60">
+<header className="sticky top-0 z-[60] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-4 border-b border-neutral-200/70 bg-white/90 transition-colors duration-300 dark:bg-transparent dark:backdrop-blur dark:supports-[backdrop-filter]:bg-neutral-950/25 dark:border-neutral-800/60">
 <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
 <Link href="/" className="group flex items-center gap-3">
-<div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-yellow-300 to-orange-500 text-[13px] font-semibold text-neutral-950 shadow-sm ring-1 ring-black/10 dark:ring-white/10">
-AK
+<div className="h-10 w-10 overflow-hidden rounded-full shadow-sm ring-1 ring-black/10 dark:ring-white/10">
+<Image src={logo} alt="Ashish logo" width={40} height={40} className="h-full w-full object-cover" />
 </div>
 <div className="hidden sm:block leading-tight">
 <div className="text-sm font-semibold tracking-tight">Ashish Kushwaha</div>

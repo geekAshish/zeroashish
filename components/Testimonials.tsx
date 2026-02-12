@@ -6,17 +6,17 @@ const testimonials = [
 {
 quote:
 'Ashish built our complete UI with precision, speed, and ownership, delivering a polished product experience beyond expectations.',
-name: 'Aman Verma (Founder @iot-e)',
+name: 'Aman (Founder @iot-e)',
 },
 {
 quote:
 'Ashish combines speed, precision, and creativity, taking full responsibility while delivering scalable solutions that significantly improve product performance.',
-name: 'Pawan Sharma',
+name: 'Pawan',
 },
 {
 quote:
 'Ashish consistently delivers high-quality work with strong ownership, technical depth, clear communication, and exceptional problem-solving abilities under pressure.',
-name: 'Joy',
+name: 'Sanjay',
 },
 ] as const
 
