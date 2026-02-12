@@ -5,18 +5,18 @@ import { motion } from 'motion/react'
 const testimonials = [
 {
 quote:
-'Ashish is great to work with — thoughtful, fast, and detail-oriented. The UI shipped ahead of schedule and looked fantastic.',
-name: 'Alex Suprun',
+'Ashish built our complete UI with precision, speed, and ownership, delivering a polished product experience beyond expectations.',
+name: 'Aman Verma (Founder @iot-e)',
 },
 {
 quote:
-'Working with Ashish was a pleasure. His attention to detail and problem-solving skills are exceptional.',
-name: 'Sarah Chen',
+'Ashish combines speed, precision, and creativity, taking full responsibility while delivering scalable solutions that significantly improve product performance.',
+name: 'Pawan Sharma',
 },
 {
 quote:
-'Clean code, great communication, and excellent product sense. Would happily collaborate again.',
-name: 'Diego Ramos',
+'Ashish consistently delivers high-quality work with strong ownership, technical depth, clear communication, and exceptional problem-solving abilities under pressure.',
+name: 'Joy',
 },
 ] as const
 

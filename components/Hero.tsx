@@ -29,7 +29,7 @@ const PROFILE = {
   name: 'Ashish Kushwaha',
   title: 'Full-Stack Engineer',
   badge: 'Web3 Enthusiast',
-  summary: 'I am a software engineer with a passion for building web applications.',
+  summary: `I'm your go-to Full Stack Developer, ready to bring your dream product to life in the virtual world.`,
   roleLine: 'Software Developer',
   programLine: 'Cohort 3 - @100xDevs',
   location: 'India',
