@@ -20,6 +20,8 @@ import {
   STACK_ICONS,
 } from '@/constant/constant'
 
+const RESUME_URL = new URL('../assets/Ashish_kushwaha_Fullstack_developer.pdf', import.meta.url).toString()
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
@@ -41,7 +43,7 @@ const PROFILE = {
   programLine: 'Cohort 3 - @100xDevs',
   location: 'India',
   phone: '+91 8299690703',
-  website: 'zeroashish.vercel.app',
+  resumeLabel: 'Resume',
   githubUsername: 'geekAshish',
 } as const
 
@@ -86,7 +88,7 @@ function InfoRow({
   href?: string
   mono?: boolean
 }) {
-  const shouldOpenNewTab = Boolean(href && /^https?:\/\//i.test(href))
+  const shouldOpenNewTab = Boolean(href && !/^(mailto:|tel:)/i.test(href))
 
   const content = (
     <span
@@ -256,9 +258,9 @@ export default function Hero() {
             />
             <InfoRow
               icon={<GlobeIcon className="h-4 w-4" />}
-              label="Website"
-              value={PROFILE.website}
-              href={`https://${PROFILE.website}`}
+              label="Resume"
+              value={PROFILE.resumeLabel}
+              href={RESUME_URL}
               mono
             />
           </div>
