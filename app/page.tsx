@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import Experience from '@/components/Experience'
 import FeaturedProjects from '@/components/FeaturedProjects'
 import Testimonials from '@/components/Testimonials'
 import GetInTouch from '@/components/GetInTouch'
@@ -12,6 +13,7 @@ return (
 <Header />
 <AnimatedPage>
 <Hero />
+<Experience />
 <FeaturedProjects />
 <Testimonials />
 <GetInTouch />
