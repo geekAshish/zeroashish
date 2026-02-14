@@ -5,11 +5,12 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { projects } from '@/components/projectsData'
 import { ArrowUpRightIcon } from '@/components/icons'
-import { nextjs, nodejs, postgresql, react, rust, socketio, solana, tailwindcss, typescript, SOCIAL_ICONS } from '@/constant/constant'
+import { nextjs, nodejs, express, postgresql, react, rust, socketio, solana, tailwindcss, typescript, SOCIAL_ICONS } from '@/constant/constant'
 
 function techIconSrc(label: string) {
   const key = label.trim().toLowerCase()
   if (key === 'react') return react
+  if (key === 'express') return express
   if (key === 'next.js' || key === 'nextjs') return nextjs
   if (key === 'tailwind css' || key === 'tailwindcss') return tailwindcss
   if (key === 'typescript') return typescript
@@ -107,7 +108,7 @@ className="inline-flex h-8 w-8 items-center justify-center rounded-full border b
 </div>
 
 <div className="mt-4 flex flex-wrap gap-2">
-{p.stack.slice(0, 3).map((t) => (
+{p.stack.slice(0, 7).map((t) => (
 <span
 key={t}
 title={t}
