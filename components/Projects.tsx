@@ -75,6 +75,7 @@ className="object-cover transition duration-300 group-hover:scale-[1.02]"
 {p.title}
 </h3>
 <div className="flex shrink-0 items-center gap-2 pt-0.5">
+{p.repo ? (
 <a
 href={p.repo}
 target="_blank"
@@ -85,6 +86,7 @@ className="inline-flex h-8 w-8 items-center justify-center rounded-full border b
 >
   <Image src={SOCIAL_ICONS.github} alt="GitHub" width={16} height={16} sizes="16px" className="h-4 w-4 object-contain" />
 </a>
+) : null}
 {p.live ? (
 <a
 href={p.live}
