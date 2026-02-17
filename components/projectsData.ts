@@ -38,41 +38,5 @@ title: 'Second Brain',
 desc: 'increase your productivity, and lead a more fulfilling life with more ease and less stress.',
 stack: ['React', 'Node.js', 'Express',],
 repo: 'https://github.com/geekAshish/second-brain-app',
-},
-{
-title: 'Solana-mpc-tss',
-desc: 'A TypeScript library for Solana multi-party computation tooling.',
-stack: ['TypeScript', 'Solana'],
-repo: 'https://github.com/geekAshish',
-},
-{
-title: 'Pixel Pilot',
-desc: 'Transforms prompts into beautiful mathematical animations.',
-stack: ['Next.js', 'TypeScript'],
-repo: 'https://github.com/geekAshish',
-},
-{
-title: 'NFT Marketplace',
-desc: 'Mint, buy, and sell NFTs with a clean, modern UX.',
-stack: ['Solana', 'React'],
-repo: 'https://github.com/geekAshish',
-},
-{
-title: 'Resumera',
-desc: 'Resume analysis + ATS optimization with a simple, guided flow.',
-stack: ['Next.js', 'Node.js'],
-repo: 'https://github.com/geekAshish',
-},
-{
-title: 'AeroFlux',
-desc: 'A suite of Solana tools with an intuitive dashboard interface.',
-stack: ['Solana', 'TypeScript'],
-repo: 'https://github.com/geekAshish',
-},
-{
-title: 'AMM',
-desc: 'An automated market maker contract built with Anchor.',
-stack: ['Solana', 'Rust'],
-repo: 'https://github.com/geekAshish',
-},
+}
 ] as const
