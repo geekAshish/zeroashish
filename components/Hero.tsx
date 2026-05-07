@@ -28,8 +28,8 @@ const fadeUp = {
 }
 
 const ROTATING_BADGES = [
-  'Web3 Enthusiast',
-  'Blockchain developer',
+  // 'Web3 Enthusiast',
+  // 'Blockchain developer',
   'Fullstack developer',
 ] as const
 
